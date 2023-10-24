@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Dancing%20Script);
+@import url(https://fonts.googleapis.com/css?family=Rubik);
+
+:root {
+  --g1: rgb(54, 223, 12);
+  --g2: rgb(207, 221, 15);
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+
+  to {
+    background-position: -200% center;
+  }
+}
+
+body {
+  animation: background-pan 10s linear infinite;
+  background: linear-gradient(to right, var(--g1), var(--g2), var(--g1));
+  background-size: 200%;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0px;
+}
+
+body.toggled {
+  animation: none;
+}
+
+body.toggled > #title {
+  opacity: 0;
+}
+
+body.toggled > #icon {
+  opacity: 1;
+}
+
+body.toggled > #tiles > .tile:hover {
+  opacity: 0 !important;
+}
+
+.centered {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#buttons {
+  position: absolute;
+  top: 5%;
+  left: 40%;
+  transform: translateX(-50%);
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+}
+#buttons .btn {
+  background-color: transparent;
+  font-family: "Pacifico", cursive;
+  font-size: 50px;
+  border-color: transparent;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#buttons .btn span::after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#buttons .btn:hover span {
+  padding-right: 25px;
+}
+
+#buttons .btn:hover span::after {
+  opacity: 1;
+  right: 0;
+}
+
+#buttons .btn1 {
+  left: 25%;
+}
+
+#buttons .btn2 {
+  left: 50%;
+}
+
+#buttons .btn3 {
+  left: 75%;
+}
+
+#tiles {
+  height: calc(100vh - 1px);
+  width: calc(100vw - 1px);
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+}
+
+#welcome-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Pacifico", cursive;
+  font-size: 6vw;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#welcome-message > h2 {
+  font-size: 1.5em;
+  line-height: 0.9em;
+}
+
+.tile {
+  cursor: pointer;
+  position: relative;
+}
+
+.tile:hover:before {
+  background-color: rgb(30, 30, 30);
+}
+
+.tile:before {
+  background-color: rgb(15, 15, 15);
+  content: "";
+  inset: 0.5px;
+  position: absolute;
+}
+
+#title {
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: 6vw;
+  margin: 0px;
+  pointer-events: none;
+  transition: opacity 800ms ease;
+  width: 50vw;
+  z-index: 3;
+}
+
+#title > .fancy {
+  color: var(--g2);
+  font-family: "Dancing Script", cursive;
+  font-size: 1.2em;
+  line-height: 0.9em;
+}
+
+#icon {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 80vmin;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1200ms ease;
+  z-index: 1;
+}
