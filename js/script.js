@@ -82,13 +82,13 @@ window.onresize = () => createGrid();
 function handleButtonClick(index) {
   switch (index) {
     case 0:
-      window.location.href = '/pages/html/main.html'; 
+      window.location.href = 'pages/html/main.html'; 
       break;
     case 1:
-      window.location.href = '/pages/html/rules.html'; 
+      window.location.href = 'pages/html/rules.html'; 
       break;
     case 2:
-      window.location.href = '/pages/html/about.html'; 
+      window.location.href = 'pages/html/about.html'; 
       break;
   }
 }
