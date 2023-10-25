@@ -26,15 +26,15 @@ body {
   margin: 0px;
 }
 
-body.toggled {
-  animation: none;
-}
-
 body.toggled > #title {
   opacity: 0;
 }
 
 body.toggled > #icon {
+  opacity: 1;
+}
+
+body.toggled > #buttons {
   opacity: 1;
 }
 
@@ -57,6 +57,8 @@ body.toggled > #tiles > .tile:hover {
   z-index: 1;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  transition: 0.8s ease;
 }
 #buttons .btn {
   background-color: transparent;
@@ -66,25 +68,6 @@ body.toggled > #tiles > .tile:hover {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  transition: 0.5s;
-}
-
-#buttons .btn span::after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-#buttons .btn:hover span {
-  padding-right: 25px;
-}
-
-#buttons .btn:hover span::after {
-  opacity: 1;
-  right: 0;
 }
 
 #buttons .btn1 {
@@ -99,12 +82,32 @@ body.toggled > #tiles > .tile:hover {
   left: 75%;
 }
 
+.effect {
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.822);
+  font-weight: 550;
+}
+
+.effect::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  height: 6px;
+  width: 0;
+  background:#818181;
+  border-radius: 50px;
+  transition: width 0.3s ease;
+}
+
+.effect:hover::before {
+  width: 100%;
+}
+
 #tiles {
   height: calc(100vh - 1px);
   width: calc(100vw - 1px);
   position: relative;
   z-index: 2;
-
   display: grid;
   grid-template-columns: repeat(var(--columns), 1fr);
   grid-template-rows: repeat(var(--rows), 1fr);
