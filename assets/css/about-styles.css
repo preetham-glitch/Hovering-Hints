@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @import url(https://fonts.googleapis.com/css?family=Dancing%20Script);
 @import url(https://fonts.googleapis.com/css?family=Rubik);
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&family=Sacramento&display=swap');
 
 :root {
     --g1: #407f86;
@@ -183,10 +182,16 @@ p::selection{
   transform: translateX(-50%);
   background: transparent;
   color: white;
+  font-weight: bold;
   padding: 10px;
   opacity: 0;
-  transition: opacity 0.5s ease;
-  font-family: 'Poppins', sans-serif;
+  transition: opacity 0.7s ease;
+  font-family: 'Sacramento', cursive;
+  font-size: 30px;
+}
+
+.hover-text::selection {
+  background: transparent;
 }
 
 .image-container:hover .hover-text {
